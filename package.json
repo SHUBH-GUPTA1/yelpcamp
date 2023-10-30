@@ -1,10 +1,14 @@
 {
+  "homepage":"https://SHUBH-GUPTA1.github.io/yelpcamp",
   "name": "yelpcamp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "predeploy":"npm run build",
+    "deploy":"gh-pages -d build",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -34,5 +38,8 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0",
     "sanitize-html": "^2.10.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
