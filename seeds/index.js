@@ -1,10 +1,13 @@
+require("dotenv").config();
 const mongoose=require('mongoose');
 const cities=require('./cities');
 const{places,descriptors}=require('./seedHelpers');
 const Campground=require('../models/campground');
 const axios=require('axios');
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/yelp-camp';
 
-mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
+mongoose.connect(dbUrl)
+// mongoose.connect('mongodb://127.0.0.1:27017/yelp-camp');
  //,{
 //     useNewUrlParser:true,
 //     useCreateIndex:true,
@@ -41,7 +44,7 @@ for(let i=0;i<300;i++){
     const price=Math.floor(Math.random()*20)+10;
     const camp = new Campground({
       //YOUR USER ID
-      author:'6469eba19774ceef9c03ed08',
+      author:'6602a44be5b1db616132bb60',
         location:`${cities[random1000].city},${cities[random1000].state}`,
         title:`${sample(descriptors)} ${sample(places)}`,
         description:
